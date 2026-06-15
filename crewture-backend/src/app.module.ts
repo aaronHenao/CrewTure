@@ -7,6 +7,7 @@ import { TripModule } from './modules/trip/trip.module';
 import { ExpenseModule } from './modules/expense/expense.module';
 import { UsersModule } from './modules/users/users.module';
 import { ItineraryModule } from './modules/itinerary/itinerary.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -28,7 +29,8 @@ import { ItineraryModule } from './modules/itinerary/itinerary.module';
     UsersModule,
     TripModule,
     ExpenseModule,
-    ItineraryModule
+    ItineraryModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

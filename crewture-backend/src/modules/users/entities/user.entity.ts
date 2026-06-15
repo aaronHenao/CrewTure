@@ -21,8 +21,8 @@ export class User {
     @Column({name: 'firstName', type: 'varchar'})
     firstName!: string;
 
-    @Column({name: 'lastName', type: 'varchar'})
-    lastName!: string;
+    @Column({name: 'lastName', type: 'varchar', nullable:true})
+    lastName?: string;
 
     @Column({name: 'avatar', type: 'varchar', nullable: true})
     avatar!: string;
