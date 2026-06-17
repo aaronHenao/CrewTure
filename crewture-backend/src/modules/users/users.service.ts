@@ -45,19 +45,18 @@ export class UsersService {
     return user;
   }
 
-  findAll() {
-    return `This action returns all users`;
-  }
+  async update(uuid: string, updateUserDto: UpdateUserDto): Promise<ResponseUserDto> {
+    const existingUser = await this.userRepository.findOne({where: {uuid: uuid}});
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
+    if(!existingUser){
+      throw new NotFoundException('El usuario no existe');
+    }
+    
+    existingUser.avatar = updateUserDto.avatar!;
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
+    const updateddUser = this.userRepository.save(existingUser);
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+    return plainToInstance(ResponseUserDto, existingUser, {excludeExtraneousValues: true});
+
   }
 }

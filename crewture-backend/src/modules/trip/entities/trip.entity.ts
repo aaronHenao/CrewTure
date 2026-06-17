@@ -30,7 +30,7 @@ export class Trip {
     createdAt!: Date
 
     @OneToMany(() => TripMember, tripmember => tripmember.trip)
-    members!: TripMember;
+    members!: TripMember[];
 
     @OneToMany(() => Expense, expense => expense.trip)
     expenses!: Expense[];

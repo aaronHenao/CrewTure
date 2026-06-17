@@ -17,6 +17,4 @@ export class ResponseUserDto {
   @Expose()
   avatar?: string;
   
-  @Expose()
-  createdAt!: Date;
 }
